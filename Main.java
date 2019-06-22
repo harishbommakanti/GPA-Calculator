@@ -61,13 +61,27 @@ public class Main
             String ifWeighted = f.next();
             weightedCheck[i] = (ifWeighted.equals("Y") || ifWeighted.equals("yes") || ifWeighted.equals("y"))? true:false;
 
-            System.out.println("For " + name + ", enter the six weeks averages and final grade (if not exempted) " +
-                    "separated by a space on one line. \n" +
-                    "For example, for 'World History' I might enter: 89 91 92 85. If you are exempt from the final," +
-                    " enter -1 for the fourth space. \n" +
-                    "Anything over 100 rounds down to 100.");
             f.nextLine();
-            classGrades[i] = f.nextLine();
+            do
+            {
+                System.out.println("For " + name + ", enter the six weeks averages and final grade (if not exempted) " +
+                        "separated by a space on one line. \n" +
+                        "For example, for 'World History' I might enter: 89 91 92 85. If you are exempt from the final," +
+                        " enter -1 for the fourth space. \n" +
+                        "Anything over 100 rounds down to 100.");
+            } while (!checkIfValidResponse(f.nextLine(), i));
+        }
+    }
+
+    private static boolean checkIfValidResponse(String grade, int pos)
+    {
+        StringTokenizer st = new StringTokenizer(grade);
+        if (st.countTokens() != 4)
+            return false;
+        else
+        {
+            classGrades[pos] = grade;
+            return true;
         }
     }
 
