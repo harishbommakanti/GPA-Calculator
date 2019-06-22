@@ -11,6 +11,7 @@ public class Main
     private static boolean[] weightedCheck = new boolean[8];
     private static String[] classGrades = new String[8];
     private static double[] classGPAs = new double[8];
+    private static boolean[] countsForGPA? = new boolean[8];
 
     public static void main(String[] args)
     {
@@ -66,7 +67,7 @@ public class Main
                     " if you're not sure. These would include classes like Student Aide or a second sports period. Enter Y for yes or N for no.");
             String ifCounts = f.next();
             if (!(ifCounts.equals("Y") || ifCounts.equals("yes") || ifCounts.equals("y")))
-                numPastSemesters--;
+                countsForGPA[i]=true;
 
 
             f.nextLine();
@@ -121,10 +122,19 @@ public class Main
     public static void calcGPAs()
     {
         double total = 0;
-        for (double each : classGPAs)
-            total += each;
+        numClasses = 8;
 
-        thisSemesterGPA = total/8;
+        for (int i = 0; i < 8; i++)
+        {
+            if (countsForGPA[i])
+            {
+                numClasses--;
+                continue;
+            }
+            total += classGPAs[i];
+        }
+
+        thisSemesterGPA = total/numClasses;
 
         totalGPA = ((numPastSemesters*pastGPA) + thisSemesterGPA)/(numPastSemesters+1);
         System.out.println("\n\n");
