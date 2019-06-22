@@ -18,6 +18,13 @@ public class Main
 
     public static void enterPastData()
     {
+        System.out.println();
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the number of past high school semesters. For example, if you are currently ending " +
+                "the first semester of sophomore year, you would enter 2.");
+        numPastSemesters = s.nextInt();
+        System.out.println("Enter your current GPA as recorded on Naviance.");
+        pastGPA = s.nextInt();
     }
 
     public static void enterSemesterData()
