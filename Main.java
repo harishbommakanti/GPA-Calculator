@@ -23,7 +23,8 @@ public class Main
         calcClassAverages();
         calcGPAs();
 
-        System.out.println("Your total GPA is: " + totalGPA);
+        System.out.print("Your total GPA is ");
+        System.out.printf("%.3f", totalGPA);
     }
 
     public static void enterPastData()
@@ -62,9 +63,9 @@ public class Main
             weightedCheck[i] = (ifWeighted.equals("Y") || ifWeighted.equals("yes") || ifWeighted.equals("y"))? true:false;
 
             System.out.println("Does " + name + " count towards your GPA? Check out \n https://www.leanderisd.org/departments/teaching_learning/college_and_career_pathways/course_catalog" +
-                    " if you're not sure. Enter Y for yes or N for no.");
+                    " if you're not sure. These would include classes like Student Aide or a second sports period. Enter Y for yes or N for no.");
             String ifCounts = f.next();
-            if (!(ifCounts.equals("Y") || ifCounts.equals("yes") || ifCounts.equals("y"))
+            if (!(ifCounts.equals("Y") || ifCounts.equals("yes") || ifCounts.equals("y")))
                 numPastSemesters--;
 
 
@@ -126,5 +127,6 @@ public class Main
         thisSemesterGPA = total/8;
 
         totalGPA = ((numPastSemesters*pastGPA) + thisSemesterGPA)/(numPastSemesters+1);
+        System.out.println("\n\n");
     }
 }
