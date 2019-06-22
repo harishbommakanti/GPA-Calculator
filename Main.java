@@ -61,6 +61,13 @@ public class Main
             String ifWeighted = f.next();
             weightedCheck[i] = (ifWeighted.equals("Y") || ifWeighted.equals("yes") || ifWeighted.equals("y"))? true:false;
 
+            System.out.println("Does " + name + " count towards your GPA? Check out \n https://www.leanderisd.org/departments/teaching_learning/college_and_career_pathways/course_catalog" +
+                    " if you're not sure. Enter Y for yes or N for no.");
+            String ifCounts = f.next();
+            if (!(ifCounts.equals("Y") || ifCounts.equals("yes") || ifCounts.equals("y"))
+                numPastSemesters--;
+
+
             f.nextLine();
             do
             {
