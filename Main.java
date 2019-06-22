@@ -29,6 +29,13 @@ public class Main
 
     public static void enterSemesterData()
     {
+        Scanner g = new Scanner(System.in);
+        String[] classes = new String[8];
+        System.out.println();
+        System.out.println("Now, enter the data for the current semester.");
+        System.out.println("First, enter in the names of your classes followed by an enter. Only go up to 8.");
+        for (int i = 0; i < 8; i++)
+            classes[i] = g.nextString();
     }
 
     public static void enterFinalData()
